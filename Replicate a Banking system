@@ -1,0 +1,67 @@
+#program to replicate a Banking  System
+
+#Initializing the account details
+account_details= dict(username='admin',password='admin1',balance=0)
+
+#Account Login
+def login():
+    print("Welcome to the Banking System")
+
+    username=input("please enter your user name:")
+
+    password=input("print enter your password:")
+
+
+
+    if username=="admin" and password=="admin1":
+        print("Login successful!")
+        return True
+
+    else:
+        print("incorrect username or password")
+        return False
+
+#Accountt Depositing
+
+def deposit(balance):
+        amount=float(input("Enter amount to be Deposited:"))
+        balance+=amount
+        print("\nAmount Deposited:",amount)
+        return balance
+
+#Amount Withdrawal
+
+def withdraw(balance):
+    amount=float(input("Enter amount to be Withdrawn:"))
+    if balance>amount:
+        print("\n Insufficient balance", balance)
+    else:
+           balance-=amount
+           print("\n You Withdrew:",amount)
+           return balance
+
+#Main Program
+if login():
+    balance=0
+    print("\n Your Account Balance is:",balance)
+    while True:
+        print("\n Please Select Your Option")
+        print("1.Deposit")
+        print("2.Withdraw")
+        print("3.Exit")
+        option=int(input("Enter Option:"))
+        if option==1:
+            balance=deposit(balance)
+        elif option == 2:
+            balance=withdraw(balance)
+        elif option == 3:
+            print("\n thank you for using our Banking system.Your current balance is:",balance)
+
+
+
+            print("\n Thank you for using our Banking System")
+            break
+        else:
+            print("\n Invalid Option")
+
+
